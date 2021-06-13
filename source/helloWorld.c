@@ -1,6 +1,6 @@
 
 // This program is used to test the location of the GNU C library on this subsystem by running with
-// ldd a.out | grep libc
+//  ldd a.out | grep libc
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -17,4 +17,5 @@ int main(){
     const char * version = gnu_get_libc_version();
     printf("Version: --%s\n", version);
 
+    return 0;
 }
