@@ -1,6 +1,6 @@
 CC=gcc
 CFLAGS=-I -Wall
-SRC=./source/
+SRC=./src/
 BIN=./bin/
 OBJ=./obj/
 #CPPFLAGS=-Wall
