@@ -30,3 +30,4 @@ ternaryOperator.o: $(SRC)ternaryOperator.c
 
 clean:
 	rm -f $(BIN)*
+	rm -f $(OBJ)*
