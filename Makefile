@@ -1,7 +1,7 @@
 # Makefile #
 
 MODULES=ternaryOperator isms elipsesTest doofus \
-	helloWorld moveFiles multiArgs
+	helloWorld multiArgs
 
 CC=gcc
 CFLAGS=-I -Wall -g
