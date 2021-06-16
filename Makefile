@@ -1,33 +1,28 @@
+# Makefile #
+
 CC=gcc
-CFLAGS=-I -Wall
-SRC=./src/
-BIN=./bin/
-OBJ=./obj/
-#CPPFLAGS=-Wall
+CFLAGS=-I -Wall -g
+SRC=./src
+BIN=./bin
+OBJ=./obj
 
-all: ternaryOperator.o isms.o elipsesTest.o doofus.o helloWorld.o moveFiles.o multiArgs.o
+MODULES=ternaryOperator isms elipsesTest doofus \
+	helloWorld moveFiles multiArgs
 
-doofus.o: $(SRC)doofus.c
-	$(CC) -o $(OBJ)doofus.o $(SRC)doofus.c $(CFLAGS)
+COMPILER_OBJS=$(MODULES:%=$(OBJ)/%.o)
+TARGETS=$(MODULES:%=$(BIN)/%)
 
-elipsesTest.o: $(SRC)elipsesTest.c
-	$(CC) -o $(OBJ)elipsesTest.o $(SRC)elipsesTest.c $(CFLAGS)
+$(OBJ)/%.o: $(SRC)/%.c
+	$(CC) -c -o $@ $<
 
-helloWorld.o: $(SRC)helloWorld.c
-	$(CC) -o $(OBJ)helloWorld.o $(SRC)helloWorld.c $(CFLAGS)
+$(BIN)/%: $(OBJ)/%.o
+	$(CC) $(CFLAGS) -o $@ $<
 
-isms.o: $(SRC)isms.c
-	$(CC) -o $(OBJ)isms.o $(SRC)isms.c $(CFLAGS)
-
-moveFiles.o: $(SRC)moveFiles.c
-	$(CC) -o $(OBJ)moveFiles.o $(SRC)moveFiles.c $(CFLAGS)
-
-multiArgs.o: $(SRC)multiArgs.c
-	$(CC) -o $(OBJ)multiArgs.o $(SRC)multiArgs.c $(CFLAGS)
-
-ternaryOperator.o: $(SRC)ternaryOperator.c
-	$(CC) -o $(OBJ)ternaryOperator.o $(SRC)ternaryOperator.c $(CFLAGS)
+all: $(TARGETS)
 
 clean:
-	rm -f $(BIN)*
-	rm -f $(OBJ)*
+	rm -f $(BIN)/*
+	rm -f $(OBJ)/*
+	rm -f ./src/ternaryOperator
+
+#save

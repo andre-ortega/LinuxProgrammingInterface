@@ -1,3 +1,3 @@
-# LinuxProgrammingInterface
+# The Linux Programming Interface
 
-Program snippits for learning, notetaking, optimizing workflow
+System programming examples
